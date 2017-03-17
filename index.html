@@ -1,0 +1,165 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+<meta charset="UTF-8">
+<title></title>
+<link href="style/index----1.css" rel="stylesheet">
+<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+<script type="text/javascript">
+$(function(){
+ var i=2;
+ setInterval(function(){
+	    			if(i==4){
+	    				i=2;
+	    			}
+	    			$(".focus span:eq("+i+")")
+	    			.css({"background":"url(images/tb1.png)"})
+	    			.siblings("span").css({"background":"url(images/tb2.png)"});
+	    			$(".imgs img").attr("src","images/"+i+".jpg");
+	    			$(".imgs a").attr("href",i+".html");
+	    			i++;	
+	    		},2000);
+ $(".focus span").click(function(){
+	    			$(this).css({"background":"url(images/tb1.png)"})
+	    			.siblings("span").css({"background":"url(images/tb2.png)"});
+	    			$(".imgs img").attr("src","images/"+($(this).index()+2)+".jpg");
+	    			$(".imgs a").attr("href",($(this).index()+2)+".html");
+	    			i=$(this).index();
+	    		}); 
+})
+$(function(){
+	var t=0;
+	var buer=true;
+
+     $(".nav ul li").each(function(index){
+//   	$(this).index()=index;
+        $(this).mouseover(function(){
+        	if($(this).attr("class")=="back-lis"){
+        		t=index;
+        	}
+        	buer=false;
+        	
+        	$(".nav ul li").removeClass("back-lis");
+        	$(this).attr("class","back-lis");
+        	
+        	$(this).click(function(){
+        		buer=true;
+        		$(".nav ul li").removeClass("back-lis");
+        		$(this).attr("class","back-lis");
+        		
+        	})
+        	$(this).mouseleave(function(){
+        		$(".nav ul li").removeClass("back-lis");
+        	    
+        	    buer==true?$(this).attr("class","back-lis"):$(".nav ul li:eq(t)").attr("class","back-lis");
+//      	    if(buer){
+//      	    	$(this).attr("class","back-lis");
+//      	    }else{
+//      	    	$(".nav ul li:eq(t)").attr("class","back-lis");
+//      	    }
+        	})
+        })
+     })
+
+	alert(buer);
+})
+</script>
+<style>
+	.back-lis{background:#ee7a00;}
+</style>
+	</head>
+<body>
+<div id="top">
+ <div class="imgs">
+	<a href="">
+	<img src="images/4.jpg"></a>
+ </div>
+<div id="header">
+<div class="logo"><a href="#"><img src="images/logo.png" alt="" /></a></div>
+ <div class="nav">
+  <ul>
+	<li class="back-lis"><a href="###">首页</a></li>
+	<li><a href="###">关于我们</a></li>
+    <li><a href="###">产品中心</a></li>
+    <li><a href="###">新闻中心</a></li>
+    <li><a href="###">联系我们</a></li>
+    <li><a href="###">招商加盟</a></li>
+  </ul>
+ </div>
+ <div class="focus">
+ <span class="s1" style="background: url(images/tb1.png);"></span>
+ <span class="s2"></span>
+ <span class="s3"></span>
+ </div>
+ </div>
+ </div>
+ </div>
+<div id="main">
+ <div class="title">业务范围<span>Display case</span></div>
+ <div class="code">
+ 	<ul>
+ 	  <li><a href="###"><img src="images/1.png" alt=""><p>手机客户端</p></a></li>
+ 	  <li><a href="###"><img src="images/2.png" alt=""><p>酷吗商城</p></a></li>
+ 	  <li><a href="###"><img src="images/3.png" alt=""><p>移伤平台</p></a></li>
+ 	  <li><a href="###"><img src="images/4.png" alt=""><p>电商管家</p></a></li>
+ 	  <li><a href="###"><img src="images/5.png" alt=""><p>微商云</p></a></li>
+ 	  <li><a href="###"><img src="images/6.png" alt=""><p>微创联盟</p></a></li>	  
+ 	</ul>
+ </div>
+ <div class="title">案例展示<span>Scope of business</span></div>
+ <div id="case">
+ 	<ul>
+ 	  <li>
+ 	  	<div id="name">海域时装</div>
+ 	  	<div class="txt">杭州海域时装有限公司是集研发、生产、营销、 物流、信息化于一体...</div>
+ 	  	<div class="img"><img src="images/img1.png" alt=""></div>
+ 	  </li>
+ 	  <li>
+ 	  	<div id="name">触点广告</div>
+ 	  	<div class="txt">美克创意公社，倾力为客户提供专业化品牌策划 和设计服务...</div>
+ 	  	<div class="img"><img src="images/img2.png" alt=""></div>
+ 	  </li>
+ 	  <li>
+ 	  	<div id="name">三盛都会城</div>
+ 	  	<div class="txt">2014年，三盛地产麾下18大项目，一种自然资源 土地具有稀缺性。8000亩土地储备...</div>
+ 	  	<div class="img"><img src="images/img3.png" alt=""></div>
+ 	  </li>
+ 	</ul>
+ </div>
+ <div id="brand">
+ 	 <div class="title">品牌介绍<span>Brand introduction</span></div>
+     <div id="img"><img src="images/brand_img.png" alt="" /></div>
+     <div class="txt">
+                如日月恒升，恒搜将始终坚持移动电子商务之路<br />
+                让传统企业完成新时代的转型升级<br />
+                也让移动商务真正惠及于民。   
+     </div>
+ </div>
+ <div id="contact">
+ 	<div class="title">联系我们<span>Contact us</span></div>
+ 	<dl>
+ 	  <dt><img src="images/ph_ico.png" aalt=""></dt>
+ 	  <dd>400-711-1035</dd>
+ 	  <dd>全国统一客服热线</dd>
+ 	</dl>
+ 	<dl>
+ 	  <dt><img src="images/join_ico.png"></dt>
+ 	  <dd>400-711-1580</dd>
+ 	  <dd>招商热线</dd>
+ 	</dl>
+ </div>
+</div>
+<div id="foot">
+	<div class="b_nav">
+		<a href="###">服务与支持 </a>|
+            <a href="###">资讯中心  </a>|
+            <a href="###">关于恒搜  </a>|
+            <a href="###">招聘求职  </a>| 
+            <a href="###">相关网站 </a>
+	</div>
+	<div id="text">
+		2005-2014 浙江恒搜科技股份有限公司版权所有 浙ICP备08010238号-10
+	</div>
+</div>
+	</body>
+</html>
